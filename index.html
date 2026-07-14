@@ -460,6 +460,109 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     </div>
   </section>
 
+  <style>
+    .bonus-section{padding:72px 0}
+    .bonus-wrap{max-width:980px;margin:0 auto}
+    .bonus-title{text-align:center;font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:700;line-height:1.18;letter-spacing:-0.01em;color:var(--foreground);margin:20px 0 48px}
+    .bonus-title .accent{color:var(--primary)}
+    .bonus-stack{border-top:1px solid oklch(0.75 0.115 82/.18)}
+    .bonus-row{display:grid;grid-template-columns:40px 1fr auto;align-items:center;column-gap:20px;padding:22px 16px;border-bottom:1px solid oklch(0.75 0.115 82/.18)}
+    .bonus-mark{width:36px;height:36px;border:1px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:14px;line-height:1}
+    .bonus-body{display:flex;flex-direction:column;gap:4px}
+    .bonus-name{font-size:17px;font-weight:600;color:var(--foreground);letter-spacing:-0.003em;line-height:1.3}
+    .bonus-desc{font-size:14px;color:var(--foreground);line-height:1.55;font-weight:300;max-width:620px}
+    .bonus-value{text-align:right;flex-shrink:0}
+    .bonus-amount{font-size:18px;color:var(--primary);font-weight:600;line-height:1}
+    .bonus-pill{display:inline-block;background:var(--primary);color:var(--primary-foreground);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:0;white-space:nowrap}
+    .bonus-total{display:grid;grid-template-columns:40px 1fr;column-gap:20px;padding:28px 16px 8px}
+    .bonus-total-content{display:flex;justify-content:space-between;align-items:center;gap:24px}
+    .bonus-total-label{font-size:15px;color:var(--foreground);font-weight:500}
+    .bonus-total-amount{font-size:26px;color:var(--primary);font-weight:700;line-height:1}
+    .bonus-footnote{text-align:center;margin-top:24px;font-size:12px;color:var(--foreground);font-weight:300;letter-spacing:.01em;opacity:.9}
+    @media(max-width:720px){
+      .bonus-row,.bonus-total{grid-template-columns:32px 1fr;column-gap:14px}
+      .bonus-row{padding:18px 10px}
+      .bonus-value{grid-column:2;text-align:left;margin-top:10px}
+      .bonus-name{font-size:16px}
+      .bonus-desc{font-size:13px}
+      .bonus-total-content{flex-direction:column;align-items:flex-start;gap:6px}
+      .bonus-total-amount{font-size:22px}
+    }
+  </style>
+
+  <section id="bonuses" class="bonus-section section-dark">
+    <div class="wrap bonus-wrap">
+
+      <div class="section-rule centered">
+        <span class="rule-line"></span>
+        <span id="bonus-eyebrow">Incluido sin costo adicional</span>
+        <span class="rule-line trailing" style="background:linear-gradient(90deg,oklch(0.75 0.115 82/.6),transparent)"></span>
+      </div>
+
+      <h2 class="bonus-title" id="bonus-title">Todo lo que recibes <span class="accent">además del programa</span></h2>
+
+      <div class="bonus-stack">
+
+        <div class="bonus-row">
+          <div class="bonus-mark">◆</div>
+          <div class="bonus-body">
+            <p class="bonus-name" id="bonus1-name">Acceso anticipado: novela de negocios</p>
+            <p class="bonus-desc" id="bonus1-desc">Los primeros capítulos de mi próxima novela de negocios en inglés, antes de su lanzamiento público.</p>
+          </div>
+          <div class="bonus-value"><div class="bonus-amount">$65</div></div>
+        </div>
+
+        <div class="bonus-row">
+          <div class="bonus-mark">✎</div>
+          <div class="bonus-body">
+            <p class="bonus-name" id="bonus2-name">Guías de película</p>
+            <p class="bonus-desc" id="bonus2-desc">Acceso a guías de aprendizaje basadas en películas relevantes: vocabulario, frases clave y ejercicios de fluidez organizados por escena.</p>
+          </div>
+          <div class="bonus-value"><div class="bonus-amount">$135</div></div>
+        </div>
+
+        <div class="bonus-row">
+          <div class="bonus-mark">♪</div>
+          <div class="bonus-body">
+            <p class="bonus-name" id="bonus3-name">Tu podcast de fluidez personal</p>
+            <p class="bonus-desc" id="bonus3-desc">Episodios exclusivos creados para tu industria. No están disponibles en ningún otro lugar.</p>
+          </div>
+          <div class="bonus-value"><div class="bonus-amount">$200</div></div>
+        </div>
+
+        <div class="bonus-row">
+          <div class="bonus-mark">+1</div>
+          <div class="bonus-body">
+            <p class="bonus-name" id="bonus4-name">Semana adicional de coaching</p>
+            <p class="bonus-desc" id="bonus4-desc">Una semana adicional de apoyo al final del programa — 3 sesiones en vivo — para reforzar tu avance justo cuando más lo necesitas.</p>
+          </div>
+          <div class="bonus-value"><span class="bonus-pill" id="bonus4-pill">3 sesiones extra</span></div>
+        </div>
+
+        <div class="bonus-row">
+          <div class="bonus-mark">〜</div>
+          <div class="bonus-body">
+            <p class="bonus-name" id="bonus5-name">Coaching de acento</p>
+            <p class="bonus-desc" id="bonus5-desc">Trabajo dedicado de pronunciación y ritmo, enfocado en los momentos de mayor exposición: presentaciones, juntas y negociaciones.</p>
+          </div>
+          <div class="bonus-value"><div class="bonus-amount">$400</div></div>
+        </div>
+
+      </div>
+
+      <div class="bonus-total">
+        <div></div>
+        <div class="bonus-total-content">
+          <div class="bonus-total-label" id="bonus-total-label">Valor total en bonificaciones</div>
+          <div class="bonus-total-amount">$800</div>
+        </div>
+      </div>
+
+      <p class="bonus-footnote" id="bonus-footnote">Incluido automáticamente en tu programa. Sin costo adicional o letra pequeña.</p>
+
+    </div>
+  </section>
+
   <section id="results" class="testimonials-section">
     <div class="wrap" style="max-width:56rem">
       <div class="section-rule centered">
@@ -804,7 +907,23 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'tier3-b5': { en: 'Monthly progress report', es: 'Reporte de progreso mensual' },
     'tier3-plan': { en: '20-week program · 5 monthly installments · $4,000 total', es: 'Programa de 20 semanas · 5 pagos mensuales · $4,000 en total' },
 
-    'pilot-eyebrow': { en: 'Want to try before you commit?', es: '¿Quieres probar antes de comprometerte?' },
+'bonus-eyebrow': { en: 'Included at no extra cost', es: 'Incluido sin costo adicional' },
+    'bonus-title': { en: 'Everything you get <span class="accent">beyond the program</span>', es: 'Todo lo que recibes <span class="accent">además del programa</span>' },
+    'bonus1-name': { en: 'Early access: business novel', es: 'Acceso anticipado: novela de negocios' },
+    'bonus1-desc': { en: 'The first chapters of my upcoming business novel in English, before its public release.', es: 'Los primeros capítulos de mi próxima novela de negocios en inglés, antes de su lanzamiento público.' },
+    'bonus2-name': { en: 'Movie guides', es: 'Guías de película' },
+    'bonus2-desc': { en: 'Access to learning guides built around relevant films: vocabulary, key phrases, and fluency exercises organized by scene.', es: 'Acceso a guías de aprendizaje basadas en películas relevantes: vocabulario, frases clave y ejercicios de fluidez organizados por escena.' },
+    'bonus3-name': { en: 'Your personal fluency podcast', es: 'Tu podcast de fluidez personal' },
+    'bonus3-desc': { en: 'Exclusive episodes created for your industry. Not available anywhere else.', es: 'Episodios exclusivos creados para tu industria. No están disponibles en ningún otro lugar.' },
+    'bonus4-name': { en: 'Extra coaching week', es: 'Semana adicional de coaching' },
+    'bonus4-desc': { en: 'One additional week of support at the end of your program — 3 live sessions — to reinforce your progress right when you need it most.', es: 'Una semana adicional de apoyo al final del programa — 3 sesiones en vivo — para reforzar tu avance justo cuando más lo necesitas.' },
+    'bonus4-pill': { en: '3 extra sessions', es: '3 sesiones extra' },
+    'bonus5-name': { en: 'Accent coaching', es: 'Coaching de acento' },
+    'bonus5-desc': { en: 'Dedicated work on pronunciation and rhythm, focused on your highest-stakes moments: presentations, meetings, and negotiations.', es: 'Trabajo dedicado de pronunciación y ritmo, enfocado en los momentos de mayor exposición: presentaciones, juntas y negociaciones.' },
+    'bonus-total-label': { en: 'Total bonus value', es: 'Valor total en bonificaciones' },
+    'bonus-footnote': { en: 'Included automatically in your program. No extra cost, no fine print.', es: 'Incluido automáticamente en tu programa. Sin costo adicional o letra pequeña.' },
+
+        'pilot-eyebrow': { en: 'Want to try before you commit?', es: '¿Quieres probar antes de comprometerte?' },
     'pilot-title': { en: 'See the Method First - Pilot Week', es: 'Conoce el método primero - semana piloto' },
     'pilot-body': { en: 'The pilot week gives you two private sessions and a starter roadmap that we build together. You can experience exactly how a week in the full program runs, and if you continue, the full amount is credited toward Launch. If not, you keep everything we already built.', es: 'La semana piloto te da dos sesiones privadas y un plan inicial que construimos juntos. Puedes vivir exactamente cómo es una semana dentro del programa completo, y si continúas, el monto total se acredita hacia Launch. Si no, te quedas con todo lo que ya construimos.' },
     'pilot-small': { en: 'two sessions · credited if you enroll', es: 'dos sesiones · se acredita si te inscribes' },
