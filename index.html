@@ -343,6 +343,28 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 .footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;font-size:.875rem;color:rgba(245,243,238,.5)}
 .footer-links a:hover{color:var(--primary)}
 .footer-links .dot{color:rgba(245,243,238,.25)}
+
+/* --- MOBILE-ONLY OVERRIDES (below 768px). Nothing here affects desktop. --- */
+@media(max-width:767.98px){
+  /* Hero: smaller image, natural (no scale), tiny gap above image, centered copy + CTAs */
+  .hero-photo-col img{transform:none;height:400px;max-width:520px}
+  .hero-copy-col{padding-bottom:24px;text-align:center}
+  .hero-eyebrow{text-align:center}
+  .hero-surface .sub{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  /* Section eyebrows: equal rule-line widths so the text sits at true visual center */
+  .section-rule .rule-line,.section-rule .rule-line.trailing{width:40px;flex-shrink:0}
+  /* Pilot section: fully centered stack on mobile */
+  .pilot{justify-content:center;text-align:center}
+  .pilot .eyebrow-line{text-align:center}
+  .pilot p{margin-left:auto;margin-right:auto}
+  .pilot .price-block{width:100%}
+  /* Dashboard carousel: full-bleed frame + sharper rendering */
+  .combo-section{overflow:hidden}
+  .combo-carousel{width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;max-width:none}
+  .combo-carousel-frame{border-radius:0}
+  .combo-slide img{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+}
 </style>
 </head>
 <body>
@@ -746,7 +768,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
       <div class="pilot reveal">
         <div>
           <p class="eyebrow-line" id="pilot-eyebrow">Want to try before you commit?</p>
-          <h2 id="pilot-title">See the Method First - Pilot Week</h2>
+          <h2 id="pilot-title">See the Method First - <span style="color:var(--primary)">Pilot Week</span></h2>
           <p id="pilot-body">The pilot week gives you three private 1:1 sessions and a starter roadmap that we build together. You can experience firsthand what a week inside the program looks like, and if you continue, the full amount is credited toward your program. If not, you keep everything we already built.</p>
         </div>
         <div class="price-block">
@@ -777,12 +799,13 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     .bonus-total-amount{font-size:26px;color:var(--primary);font-weight:700;line-height:1}
     .bonus-footnote{text-align:center;margin-top:24px;font-size:12px;color:var(--foreground);font-weight:300;letter-spacing:.01em;opacity:.9}
     @media(max-width:720px){
-      .bonus-row,.bonus-total{grid-template-columns:32px 1fr;column-gap:14px}
-      .bonus-row{padding:18px 10px}
+      .bonus-row{grid-template-columns:32px 1fr;column-gap:14px;padding:18px 10px}
+      .bonus-total{grid-template-columns:1fr;column-gap:0}
+      .bonus-total > div:first-child{display:none}
       .bonus-value{grid-column:2;text-align:left;margin-top:10px}
       .bonus-name{font-size:16px}
       .bonus-desc{font-size:13px}
-      .bonus-total-content{flex-direction:column;align-items:flex-start;gap:6px}
+      .bonus-total-content{flex-direction:column;align-items:center;text-align:center;gap:6px}
       .bonus-total-amount{font-size:22px}
     }
   </style>
@@ -1385,7 +1408,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'tier3-plan': { en: 'Pay 3 months upfront and <b style="color:var(--foreground)">save $225 USD</b>', es: 'Paga 3 meses por adelantado y <b style="color:var(--foreground)">ahorra $225 USD</b>' },
 
     'pilot-eyebrow': { en: 'Want to try before you commit?', es: '¿Quieres probar antes de comprometerte?' },
-    'pilot-title': { en: 'See the Method First - Pilot Week', es: 'Conoce el método primero - semana piloto' },
+    'pilot-title': { en: 'See the Method First - <span style="color:var(--primary)">Pilot Week</span>', es: 'Conoce el método primero - <span style="color:var(--primary)">semana piloto</span>' },
     'pilot-body': { en: 'The pilot week gives you three private 1:1 sessions and a starter roadmap that we build together. You can experience firsthand what a week inside the program looks like, and if you continue, the full amount is credited toward your program. If not, you keep everything we already built.', es: 'La semana piloto te da tres sesiones 1:1 y un plan inicial que construimos juntos. Puedes experimentar de primera mano cómo es una semana dentro del programa, y si continúas, el monto total se acredita hacia tu programa. Si no, te quedas con todo lo que ya construimos.' },
     'pilot-small': { en: 'three sessions · credited if you enroll', es: 'tres sesiones · se acredita si te inscribes' },
 
