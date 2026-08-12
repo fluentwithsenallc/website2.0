@@ -359,11 +359,11 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
   .pilot .eyebrow-line{text-align:center}
   .pilot p{margin-left:auto;margin-right:auto}
   .pilot .price-block{width:100%}
-  /* Dashboard carousel: full-bleed frame + sharper rendering */
+  /* Dashboard carousel: full-bleed + portrait aspect zooms into top-left so the sidebar and cards render at legible scale instead of a squished landscape */
   .combo-section{overflow:hidden}
   .combo-carousel{width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;max-width:none}
-  .combo-carousel-frame{border-radius:0}
-  .combo-slide img{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+  .combo-carousel-frame{border-radius:0;aspect-ratio:3/4}
+  .combo-slide img{object-position:top left}
 }
 </style>
 </head>
@@ -710,8 +710,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
       <h2 class="reveal" id="tiers-title">Choose the package that fits <span class="gold">what you need</span></h2>
       <p class="lede reveal" id="tiers-lede">Every package includes private 1:1 sessions, a personalized roadmap, and an interactive client dashboard. Your milestone is established with you in week one and covered by the guarantee above, no matter which package you choose. The difference between packages is the number of sessions, the benefits, and the depth of support you receive.</p>
       <div class="tier-grid">
-        <div class="tier featured reveal">
-          <span class="tag" id="tier1-tag">Most Clients Start Here</span>
+        <div class="tier ghost-btn reveal">
           <h3 id="tier1-name">Launch</h3>
           <p class="duration" id="tier1-duration">12 sessions/mo</p>
           <ul>
@@ -726,7 +725,8 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </div>
           <a href="/apply" class="gold-btn" id="tier1-cta">Apply for Coaching</a>
         </div>
-        <div class="tier ghost-btn reveal">
+        <div class="tier featured reveal">
+          <span class="tag" id="tier2-tag">Most Popular</span>
           <h3 id="tier2-name">Build</h3>
           <p class="duration" id="tier2-duration">16 sessions/mo</p>
           <ul>
@@ -1379,7 +1379,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'tiers-title': { en: 'Choose the package that fits <span class="gold">what you need</span>', es: 'Elige el paquete que se ajusta a <span class="gold">lo que necesitas</span>' },
     'tiers-lede': { en: 'Every package includes private 1:1 sessions, a personalized roadmap, and an interactive client dashboard. Your milestone is established with you in week one and covered by the guarantee above, no matter which package you choose. The difference between packages is the number of sessions, the benefits, and the depth of support you receive.', es: 'Cada paquete incluye sesiones privadas 1:1, un plan personalizado y un panel de cliente interactivo. Tu meta se establece contigo en la primera semana y queda cubierta por la garantía anterior, sin importar el paquete que elijas. La diferencia entre paquetes está en el número de sesiones, los beneficios y la profundidad de apoyo que recibes.' },
 
-    'tier1-tag': { en: 'Most Clients Start Here', es: 'La mayoría empieza aquí' },
+    'tier2-tag': { en: 'Most Popular', es: 'El más elegido' },
     'tier1-name': { en: 'Launch', es: 'Launch' },
     'tier1-duration': { en: '12 sessions/mo', es: '12 sesiones/mes' },
     'tier1-b1': { en: 'Up to 3 private sessions per week', es: 'Hasta 3 sesiones privadas por semana' },
