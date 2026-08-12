@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fluent with Sena</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.classList.add('anim-ready');}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -31,6 +32,30 @@ a{text-decoration:none;color:inherit}
 @media(min-width:768px){.wrap{padding:0 32px}}
 
 .reveal{opacity:1;transform:none}
+
+/* --- Premium motion: scroll reveals + hero entrance (disabled for reduced-motion) --- */
+@media (prefers-reduced-motion: no-preference){
+  html.anim-ready .reveal{opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.19,1,.22,1),transform 1.2s cubic-bezier(.19,1,.22,1);will-change:opacity,transform}
+  html.anim-ready .reveal.is-in{opacity:1;transform:none}
+  html.anim-ready #home .hero-eyebrow,
+  html.anim-ready #home h1,
+  html.anim-ready #home .sub,
+  html.anim-ready #home .hero-ctas{opacity:0;animation:heroIn 1.15s cubic-bezier(.19,1,.22,1) forwards}
+  html.anim-ready #home h1{animation-delay:.12s}
+  html.anim-ready #home .sub{animation-delay:.30s}
+  html.anim-ready #home .hero-ctas{animation-delay:.46s}
+  html.anim-ready #home .hero-photo-col{opacity:0;animation:heroPhotoIn 1.5s cubic-bezier(.19,1,.22,1) .2s forwards}
+  @keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes heroPhotoIn{from{opacity:0;transform:translateY(44px) scale(.98)}to{opacity:1;transform:none}}
+  .tier{transition:transform .4s cubic-bezier(.19,1,.22,1),box-shadow .4s ease,border-color .4s ease}
+  .tier:hover{transform:translateY(-6px);box-shadow:0 26px 60px -30px rgba(0,0,0,.7)}
+  .step-wrap.is-visible .step-card{transition:opacity .45s cubic-bezier(.2,0,.2,1),transform .4s cubic-bezier(.19,1,.22,1),border-color .5s ease,box-shadow .5s ease}
+  .step-wrap.is-visible .step-card:hover{transform:translateY(-5px);box-shadow:0 24px 54px -28px rgba(0,0,0,.65)}
+  .gold-btn,.text-btn{transition:transform .22s cubic-bezier(.19,1,.22,1),background .22s ease,box-shadow .22s ease,color .22s ease}
+  .text-btn:hover{transform:translateY(-2px)}
+}
+header.site-nav{transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
+header.site-nav.scrolled{background:oklch(0.125 0.036 265 / .97);box-shadow:0 10px 30px -18px rgba(0,0,0,.8)}
 
 .gold-btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:8px;border-radius:0;background:var(--primary);padding:0 28px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--primary-foreground);box-shadow:0 16px 42px -22px var(--primary);transition:all .2s;cursor:pointer}
 .gold-btn:hover{background:var(--primary-bright);transform:translateY(-2px)}
@@ -79,12 +104,12 @@ header.site-nav{position:fixed;inset-inline:0;top:0;z-index:50;background:oklch(
 @media(min-width:768px){.nav-hamburger,.mobile-menu,.mobile-menu-backdrop{display:none!important}}
 
 .hero-surface{background:linear-gradient(90deg, oklch(0.16 0.045 265) 0%, oklch(0.19 0.045 265) 54%, oklch(0.135 0.036 265) 100%), var(--background);padding-top:70px;position:relative;overflow:hidden}
-.hero-grid{margin:0 auto;display:grid;grid-template-columns:1fr;min-height:650px;max-width:1280px;align-items:start;gap:32px;padding:64px 20px 40px}
-@media(min-width:768px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(300px,.82fr);padding:48px 32px 64px}}
-@media(min-width:1024px){.hero-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:40px}}
+.hero-grid{margin:0 auto;display:grid;grid-template-columns:1fr;min-height:650px;max-width:1280px;align-items:stretch;gap:32px;padding:64px 20px 0}
+@media(min-width:768px){.hero-grid{grid-template-columns:minmax(0,1.18fr) minmax(260px,.68fr);padding:48px 32px 0}}
+@media(min-width:1024px){.hero-grid{grid-template-columns:minmax(0,1.24fr) minmax(0,.76fr);gap:48px}}
 .hero-eyebrow{margin-bottom:26px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--primary)}
-.hero-surface h1{max-width:48rem;font-size:clamp(2.8rem,6.2vw,5.9rem);font-weight:800;font-family:'DM Sans','Poppins','Helvetica Neue',Arial,sans-serif;line-height:.98;letter-spacing:-.01em}
-html[lang="es"] .hero-surface h1{font-size:clamp(2.6rem,5.7vw,5.4rem)}
+.hero-surface h1{max-width:48rem;font-size:clamp(3rem,6.2vw,5.2rem);font-weight:800;font-family:'DM Sans','Poppins','Helvetica Neue',Arial,sans-serif;line-height:.98;letter-spacing:-.01em}
+html[lang="es"] .hero-surface h1{font-size:clamp(3rem,6.2vw,5.2rem)}
 html[lang="es"] #hero-cta-1,html[lang="es"] #hero-cta-2{font-size:.68rem;padding:0 22px;letter-spacing:.14em}
 .hero-surface h1 .gold{color:var(--primary)}
 .hero-surface .sub{margin-top:28px;max-width:42rem;font-size:1rem;line-height:2;color:rgba(245,243,238,.92)}
@@ -94,9 +119,10 @@ html[lang="es"] #hero-cta-1,html[lang="es"] #hero-cta-2{font-size:.68rem;padding
 .hero-note{margin-top:16px;font-size:.82rem;color:rgba(245,243,238,.85)}
 @media(min-width:768px){.hero-surface .sub{font-size:1.125rem}}
 .hero-ctas{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
-.hero-photo-col{position:relative;display:flex;min-height:480px;align-items:flex-start;justify-content:center;align-self:start}
-.hero-photo-col img{height:470px;width:100%;max-width:560px;object-fit:contain;object-position:top;filter:drop-shadow(0 42px 70px rgba(0,0,0,.42));display:block;margin-bottom:0}
-@media(min-width:768px){.hero-photo-col{min-height:690px;margin-top:6px}.hero-photo-col img{height:720px;max-width:none}}
+.hero-copy-col{padding-bottom:37px}
+.hero-photo-col{position:relative;display:flex;min-height:400px;align-items:flex-end;justify-content:center;align-self:stretch}
+.hero-photo-col img{height:480px;width:100%;max-width:560px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 42px 70px rgba(0,0,0,.42));display:block;margin-bottom:0;transform:scale(1.25);transform-origin:bottom center}
+@media(min-width:768px){.hero-copy-col{padding-bottom:48px}.hero-photo-col{min-height:744px;justify-content:flex-end}.hero-photo-col img{height:744px;max-height:none;max-width:100%;width:auto}}
 
 .section-dark{background:oklch(0.155 0.038 265)}
 .guarantee-section{background:oklch(0.155 0.038 265);border-top:1px solid var(--border);padding:96px 0;text-align:center}
@@ -367,16 +393,16 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 
   <section id="home" class="hero-surface">
     <div class="hero-grid">
-      <div class="reveal">
+      <div class="hero-copy-col">
         <p class="hero-eyebrow" id="hero-eyebrow">1:1 English coaching for commercial professionals</p>
-        <h1 id="hero-h1">Lead your first meeting <span class="gold">entirely in English</span> within 12 weeks</h1>
+        <h1 id="hero-h1">Lead your first<br>meeting<br><span class="gold">completely<br>in English</span> in 12<br>weeks</h1>
         <p class="sub" id="hero-sub">Stop translating in your head and <b>start leading in English.</b> A private coaching program for Spanish-speaking commercial professionals.</p>
         <div class="hero-ctas">
           <a href="/apply" class="gold-btn" id="hero-cta-1">Book a Discovery Call</a>
           <a href="#pilot" class="text-btn" style="border:1px solid var(--border);padding:0 22px" id="hero-cta-2">Try a Pilot Week · $75</a>
         </div>
       </div>
-      <div class="hero-photo-col reveal">
+      <div class="hero-photo-col">
         <img src="https://ebecd6d012a4750b05cf2b81c1b867a7.cdn.bubble.io/f1777542118760x615048179195580800/Gemini_Generated_Image_494b3o494b3o494b%20%281%29%201.svg" alt="Sena, English fluency coach">
       </div>
     </div>
@@ -674,7 +700,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </ul>
           <div class="price-block">
             <div class="invest"><b>$500 USD</b>/mo</div>
-            <div class="plan" id="tier1-plan">Pay 3 months upfront and save $150 USD</div>
+            <div class="plan" id="tier1-plan">Pay 3 months upfront and <b style="color:var(--foreground)">save $150 USD</b></div>
           </div>
           <a href="/apply" class="gold-btn" id="tier1-cta">Apply for Coaching</a>
         </div>
@@ -690,7 +716,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </ul>
           <div class="price-block">
             <div class="invest"><b>$625 USD</b>/mo</div>
-            <div class="plan" id="tier2-plan">Pay 3 months upfront and save $190 USD</div>
+            <div class="plan" id="tier2-plan">Pay 3 months upfront and <b style="color:var(--foreground)">save $190 USD</b></div>
           </div>
           <a href="/apply" class="gold-btn" id="tier2-cta">Apply for Coaching</a>
         </div>
@@ -700,15 +726,14 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           <ul>
             <li id="tier3-b1">Everything in <b>Build</b></li>
             <li id="tier3-b2">Up to 5 private sessions per week</li>
-            <li id="tier3-b3">Interview preparation</li>
+            <li id="tier3-b6">Unlimited flexible rescheduling, 12+ hours notice</li>
             <li id="tier3-b4">Accent reduction coaching</li>
             <li id="tier3-b5">Monthly progress report</li>
-            <li id="tier3-b6">Unlimited flexible rescheduling, 12+ hours notice</li>
             <li id="tier3-b7">Option to purchase additional sessions for only $25 each</li>
           </ul>
           <div class="price-block">
             <div class="invest"><b>$750 USD</b>/mo</div>
-            <div class="plan" id="tier3-plan">Pay 3 months upfront and save $225 USD</div>
+            <div class="plan" id="tier3-plan">Pay 3 months upfront and <b style="color:var(--foreground)">save $225 USD</b></div>
           </div>
           <a href="/apply" class="gold-btn" id="tier3-cta">Apply for Coaching</a>
         </div>
@@ -765,17 +790,17 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
   <section id="bonuses" class="bonus-section section-dark">
     <div class="wrap bonus-wrap">
 
-      <div class="section-rule centered">
+      <div class="section-rule centered reveal">
         <span class="rule-line"></span>
         <span id="bonus-eyebrow" style="font-size:12.65px">Included at no extra cost</span>
         <span class="rule-line trailing" style="background:linear-gradient(90deg,oklch(0.75 0.115 82/.6),transparent)"></span>
       </div>
 
-      <h2 class="bonus-title" id="bonus-title">Everything you get <span class="accent">beyond the program</span></h2>
+      <h2 class="bonus-title reveal" id="bonus-title">Everything you get <span class="accent">beyond the program</span></h2>
 
       <div class="bonus-stack">
 
-        <div class="bonus-row">
+        <div class="bonus-row reveal">
           <div class="bonus-mark">◆</div>
           <div class="bonus-body">
             <p class="bonus-name" id="bonus1-name">Early access: business novel</p>
@@ -783,7 +808,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </div>
         </div>
 
-        <div class="bonus-row">
+        <div class="bonus-row reveal">
           <div class="bonus-mark">✎</div>
           <div class="bonus-body">
             <p class="bonus-name" id="bonus2-name">Movie guides</p>
@@ -791,7 +816,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </div>
         </div>
 
-        <div class="bonus-row">
+        <div class="bonus-row reveal">
           <div class="bonus-mark">♪</div>
           <div class="bonus-body">
             <p class="bonus-name" id="bonus3-name">Your personal fluency podcast</p>
@@ -799,7 +824,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           </div>
         </div>
 
-        <div class="bonus-row">
+        <div class="bonus-row reveal">
           <div class="bonus-mark">+1</div>
           <div class="bonus-body">
             <p class="bonus-name" id="bonus4-name">Extra coaching week</p>
@@ -808,7 +833,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           <div class="bonus-value"><span class="bonus-pill" id="bonus4-pill">3 extra sessions</span></div>
         </div>
 
-        <div class="bonus-row">
+        <div class="bonus-row reveal">
           <div class="bonus-mark">〜</div>
           <div class="bonus-body">
             <p class="bonus-name" id="bonus5-name">Accent coaching</p>
@@ -818,7 +843,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 
       </div>
 
-      <div class="bonus-total">
+      <div class="bonus-total reveal">
         <div></div>
         <div class="bonus-total-content">
           <div class="bonus-total-label" id="bonus-total-label">Total bonus value</div>
@@ -826,20 +851,20 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
         </div>
       </div>
 
-      <p class="bonus-footnote" id="bonus-footnote">Included automatically in your program. No extra cost, no fine print.</p>
+      <p class="bonus-footnote reveal" id="bonus-footnote">Included automatically in your program. No extra cost, no fine print.</p>
 
     </div>
   </section>
 
   <section id="results" class="testimonials-section">
     <div class="wrap" style="max-width:56rem">
-      <div class="section-rule centered">
+      <div class="section-rule centered reveal">
         <span class="rule-line"></span>
         <span id="results-eyebrow">Testimonials</span>
         <span class="rule-line trailing" style="background:linear-gradient(90deg,oklch(0.75 0.115 82/.6),transparent)"></span>
       </div>
-      <h2 id="results-title">True Fluency</h2>
-      <div class="review-stage" id="review-stage" aria-live="polite">
+      <h2 class="reveal" id="results-title">True Fluency</h2>
+      <div class="review-stage reveal" id="review-stage" aria-live="polite">
         <article class="review-card" data-index="0">
           <div class="review-inner">
             <div class="stars">★★★★★</div>
@@ -919,7 +944,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           <div class="review-inner">
             <div class="stars">★★★★★</div>
             <div class="quote-wrap">
-              <p class="quote">"He avanzado mucho en cuanto a mi comprensión auditiva... Ahora tengo más conocimientos de cómo estructurar mis ideas, lo que es muy importante para mi... Es una excelente inversión en ti."</p>
+              <p class="quote">"He avanzado mucho en cuanto a mi comprensión auditiva... Ahora tengo más conocimientos de cómo estructurar mis ideas, lo que es muy importante para mí... Es una excelente inversión."</p>
             </div>
             <div class="review-who">
               <div class="divider"></div>
@@ -962,7 +987,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
         </article>
       </div>
 
-      <div class="review-controls">
+      <div class="review-controls reveal">
         <button type="button" class="review-arrow" id="review-prev" aria-label="Previous testimonial">‹</button>
         <div class="review-dots" id="review-dots">
           <span class="active" data-dot="0"></span>
@@ -981,15 +1006,15 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 
   <section class="faq-section">
     <div class="wrap" style="max-width:64rem">
-      <div class="section-rule centered">
+      <div class="section-rule centered reveal">
         <span class="rule-line"></span>
         <span id="faq-eyebrow">FAQ</span>
         <span class="rule-line trailing" style="background:linear-gradient(90deg,oklch(0.75 0.115 82/.6),transparent)"></span>
       </div>
-      <h2 id="faq-title">Everything You Need to Know</h2>
-      <p class="body" id="faq-lede">A few of the most common questions about the program, schedule, investment, and results.</p>
+      <h2 class="reveal" id="faq-title">Everything You Need to Know</h2>
+      <p class="body reveal" id="faq-lede">A few of the most common questions about the program, schedule, investment, and results.</p>
       <div class="faq-list">
-        <article class="faq-card open">
+        <article class="faq-card open reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">01</span>
             <span class="faq-question" id="faq1-q">Who is this for?</span>
@@ -999,7 +1024,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
             <div class="faq-answer-inner" id="faq1-a"><p>Commercial professionals at multinational businesses across Latin America and Spain. If English is what stands between you and career growth, this program was built for you.</p></div>
           </div>
         </article>
-        <article class="faq-card">
+        <article class="faq-card reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">02</span>
             <span class="faq-question" id="faq2-q">How does the guarantee actually work?</span>
@@ -1013,7 +1038,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
             </div>
           </div>
         </article>
-        <article class="faq-card">
+        <article class="faq-card reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">03</span>
             <span class="faq-question" id="faq3-q">What is the time commitment?</span>
@@ -1023,7 +1048,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
             <div class="faq-answer-inner" id="faq3-a"><p>Your live sessions are 50 minutes, 3 to 5 times per week depending on your package. I give you personalized objectives to complete after each session, built from your actual work. Most of your practice happens either within sessions or your daily work life, like meetings and emails you already have. You are not adding a second job.</p></div>
           </div>
         </article>
-        <article class="faq-card">
+        <article class="faq-card reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">04</span>
             <span class="faq-question" id="faq4-q">How do I get started?</span>
@@ -1033,7 +1058,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
             <div class="faq-answer-inner" id="faq4-a"><p>Click 'Apply for Coaching' and complete the application form. From there, we'll schedule a discovery call where I learn about your goals, your industry, and where you're at right now. If it's a good fit, we'll either start the pilot week or jump into your chosen program.</p></div>
           </div>
         </article>
-        <article class="faq-card">
+        <article class="faq-card reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">05</span>
             <span class="faq-question" id="faq5-q">How much does it cost?</span>
@@ -1043,7 +1068,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
             <div class="faq-answer-inner" id="faq5-a"><p>Most clients pay monthly with low commitment. Payments start at $500 USD per month (for Launch). I accept Link, all major credit cards, and bank transfers. If you want to try before committing, you can complete <b style="color:var(--foreground)">the pilot week for $75, and that payment will be fully credited toward the program you choose after.</b></p></div>
           </div>
         </article>
-        <article class="faq-card">
+        <article class="faq-card reveal">
           <button type="button" class="faq-trigger">
             <span class="faq-index">06</span>
             <span class="faq-question" id="faq6-q">What is the schedule?</span>
@@ -1072,15 +1097,15 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
   </section>
 
   <section class="section-dark final-cta">
-    <div class="section-rule centered">
+    <div class="section-rule centered reveal">
       <span class="rule-line"></span>
       <span id="final-eyebrow">Limited Spots · Guaranteed Results*</span>
       <span class="rule-line trailing" style="background:linear-gradient(90deg,oklch(0.75 0.115 82/.6),transparent)"></span>
     </div>
-    <h2 id="final-title">Stop translating in your head and <span class="gold" style="color:var(--primary)">start leading in English</span> today</h2>
-    <p id="final-body">Professional live coaching, a custom program, and guaranteed results. Apply for coaching today.</p>
-    <a href="/apply" class="gold-btn" id="final-cta-btn">Book a Discovery Call</a>
-    <p class="fine" id="final-fine">*Full terms outlined in the client contract.</p>
+    <h2 class="reveal" id="final-title">New opportunities <span class="gold" style="color:var(--primary)">aren't going to wait</span> on your English.</h2>
+    <p class="reveal" id="final-body">Professional live coaching, a custom program, and guaranteed results. Apply for coaching today.</p>
+    <a href="/apply" class="gold-btn reveal" id="final-cta-btn">Book a Discovery Call</a>
+    <p class="fine reveal" id="final-fine">*Full terms outlined in the client contract.</p>
   </section>
 
 </main>
@@ -1271,7 +1296,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'footer-cookies': { en: 'Cookie Policy', es: 'Política de cookies' },
 
     'hero-eyebrow': { en: '1:1 English coaching for commercial professionals', es: 'Coaching de inglés 1:1 para profesionales comerciales' },
-    'hero-h1': { en: 'Lead your first meeting <span class="gold">entirely in English</span> within 12 weeks', es: 'Lidera tu primera reunión <span class="gold">completamente en inglés</span> en 12 semanas' },
+    'hero-h1': { en: 'Lead your first<br>meeting<br><span class="gold">completely<br>in English</span> in 12<br>weeks', es: 'Lidera tu primera reunión <span class="gold">completamente en inglés</span> en 12 semanas' },
     'hero-sub': { en: 'Stop translating in your head and <b>start leading in English.</b> A private coaching program for Spanish-speaking commercial professionals.', es: 'Deja de traducir en tu cabeza y <b>empieza a liderar en inglés.</b> Un programa de coaching privado para profesionales comerciales de habla hispana.' },
     'hero-cta-1': { en: 'Stop Translating In Your Head', es: 'Deja de traducir en tu cabeza' },
     'hero-cta-2': { en: 'Try a Pilot Week · $75', es: 'Prueba una semana piloto · $75' },
@@ -1279,7 +1304,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'guarantee-eyebrow': { en: 'Results Guaranteed', es: 'Resultados garantizados' },
     'guarantee-title': { en: 'The Fluency Guarantee', es: 'La garantía de fluidez' },
     'guarantee-lead': { en: 'You reach your milestone, or I help you for <span class="gold">free</span>', es: 'Alcanzas tu meta, o te sigo ayudando <span class="gold">gratis</span>' },
-    'guarantee-body': { en: "In week one we define your milestone together and record a baseline of your English on video. If you attend every session, complete your weekly objectives, and still don't reach your milestone by the end of your program, I continue coaching you at no cost until you do.", es: 'En la primera semana definimos juntos tu meta y grabamos un video de referencia de tu inglés actual. Si asistes a cada sesión, completas tus objetivos semanales y aún así no alcanzas tu meta al final del programa, sigo dándote coaching sin costo hasta que la logres.' },
+    'guarantee-body': { en: "In week one we define your milestone together and record a baseline of your English on video. If you attend every session, complete your weekly objectives, and still don't reach your milestone by the end of your program, I continue coaching you at no cost until you do.", es: 'En la primera semana definimos juntos tu meta y grabamos un video de referencia de tu inglés actual. Si asistes a cada sesión, completas tus objetivos semanales y aun así no alcanzas tu meta al final del programa, sigo dándote coaching sin costo hasta que la logres.' },
     'guarantee-fine': { en: "The program demands real work from both of us - if you're looking for a low-effort course, this isn't it. Full terms are outlined in the client contract.", es: 'El programa exige trabajo real de ambos lados - si buscas un curso de bajo esfuerzo, este no es para ti. Los términos completos están en el contrato del cliente.' },
 
     'program-eyebrow': { en: 'How It Works', es: 'Cómo funciona' },
@@ -1323,7 +1348,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'bonus5-name': { en: 'Accent coaching', es: 'Coaching de acento' },
     'bonus5-desc': { en: 'Dedicated work on pronunciation and rhythm, focused on your highest-stakes moments: presentations, meetings, and negotiations.', es: 'Trabajo dedicado de pronunciación y ritmo, enfocado en los momentos de mayor exposición: presentaciones, juntas y negociaciones.' },
     'bonus-total-label': { en: 'Total bonus value', es: 'Valor total en bonificaciones' },
-    'bonus-footnote': { en: 'Included automatically in your program. No extra cost, no fine print.', es: 'Incluido automáticamente en tu programa. Sin costo adicional o letra pequeña.' },
+    'bonus-footnote': { en: 'Included automatically in your program. No extra cost, no fine print.', es: 'Incluido automáticamente en tu programa. Sin costo adicional ni letra pequeña.' },
     'tier1-cta': { en: 'Apply for Coaching', es: 'Solicita coaching' },
     'tier2-cta': { en: 'Apply for Coaching', es: 'Solicita coaching' },
     'tier3-cta': { en: 'Apply for Coaching', es: 'Solicita coaching' },
@@ -1338,7 +1363,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'tier1-b2': { en: 'Weekly objectives built from your real work', es: 'Objetivos semanales construidos desde tu trabajo real' },
     'tier1-b3': { en: 'Regular check-ins to measure growth', es: 'Revisiones regulares para medir tu progreso' },
     'tier1-b4': { en: 'Personalized roadmap', es: 'Plan personalizado' },
-    'tier1-plan': { en: 'Pay 3 months upfront and save $150 USD', es: 'Paga 3 meses por adelantado y ahorra $150 USD' },
+    'tier1-plan': { en: 'Pay 3 months upfront and <b style="color:var(--foreground)">save $150 USD</b>', es: 'Paga 3 meses por adelantado y <b style="color:var(--foreground)">ahorra $150 USD</b>' },
 
     'tier2-name': { en: 'Build', es: 'Build' },
     'tier2-duration': { en: '16 sessions/mo', es: '16 sesiones/mes' },
@@ -1347,18 +1372,17 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'tier2-b4': { en: 'Leadership communication coaching', es: 'Coaching de comunicación para liderazgo' },
     'tier2-b5': { en: 'Real Negotiation Simulations', es: 'Simulaciones de negociación real' },
     'tier2-b6': { en: 'Option to purchase additional sessions for only $25 each', es: 'Opción de comprar sesiones adicionales por solo $25 cada una' },
-    'tier2-plan': { en: 'Pay 3 months upfront and save $190 USD', es: 'Paga 3 meses por adelantado y ahorra $190 USD' },
+    'tier2-plan': { en: 'Pay 3 months upfront and <b style="color:var(--foreground)">save $190 USD</b>', es: 'Paga 3 meses por adelantado y <b style="color:var(--foreground)">ahorra $190 USD</b>' },
 
     'tier3-name': { en: 'Lead', es: 'Lead' },
     'tier3-duration': { en: '20 sessions/mo', es: '20 sesiones/mes' },
     'tier3-b1': { en: 'Everything in <b>Build</b>', es: 'Todo lo de <b>Build</b>' },
     'tier3-b2': { en: 'Up to 5 private sessions per week', es: 'Hasta 5 sesiones privadas por semana' },
-    'tier3-b3': { en: 'Interview preparation', es: 'Preparación para entrevistas' },
     'tier3-b4': { en: 'Accent reduction coaching', es: 'Coaching de reducción de acento' },
     'tier3-b5': { en: 'Monthly progress report', es: 'Reporte de progreso mensual' },
     'tier3-b6': { en: 'Unlimited flexible rescheduling, 12+ hours notice', es: 'Reagenda con flexibilidad ilimitada, con 12+ horas de aviso' },
     'tier3-b7': { en: 'Option to purchase additional sessions for only $25 each', es: 'Opción de comprar sesiones adicionales por solo $25 cada una' },
-    'tier3-plan': { en: 'Pay 3 months upfront and save $225 USD', es: 'Paga 3 meses por adelantado y ahorra $225 USD' },
+    'tier3-plan': { en: 'Pay 3 months upfront and <b style="color:var(--foreground)">save $225 USD</b>', es: 'Paga 3 meses por adelantado y <b style="color:var(--foreground)">ahorra $225 USD</b>' },
 
     'pilot-eyebrow': { en: 'Want to try before you commit?', es: '¿Quieres probar antes de comprometerte?' },
     'pilot-title': { en: 'See the Method First - Pilot Week', es: 'Conoce el método primero - semana piloto' },
@@ -1377,7 +1401,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 
     'faq2-q': { en: 'How does the guarantee actually work?', es: '¿Cómo funciona realmente la garantía?' },
     'faq2-a': { en: "We record your baseline video in English on day one and create your milestone in writing. Your milestone is a real, specific outcome — something like leading a 30-minute client meeting in English, or delivering a presentation to your team. The milestone matches your starting level and the length of your program, so it's genuinely achievable.|||If you attend every scheduled session, complete your weekly objectives, and you still haven't reached that milestone by the end of your program, <b style=\"color:var(--foreground)\">I will continue coaching you at no additional cost until you do.</b>|||The full conditions — including how milestones are defined, what counts as attendance, and what happens if life gets in the way — are outlined in the client contract that is signed before the program starts.",
-      es: 'Grabamos tu video de referencia en inglés el primer día y creamos tu meta por escrito. Tu meta es un resultado real y específico — algo como liderar una reunión de 30 minutos con un cliente en inglés, o dar una presentación a tu equipo. La meta coincide con tu nivel inicial y la duración de tu programa, así que es realmente alcanzable.|||Si asistes a cada sesión programada, completas tus objetivos semanales y aún así no has alcanzado esa meta al final de tu programa, <b style="color:var(--foreground)">sigo dándote coaching sin costo adicional hasta que la logres.</b>|||Las condiciones completas — incluyendo cómo se definen las metas, qué cuenta como asistencia y qué pasa si surge un imprevisto — están descritas en el contrato del cliente que se firma antes de iniciar el programa.' },
+      es: 'Grabamos tu video de referencia en inglés el primer día y creamos tu meta por escrito. Tu meta es un resultado real y específico — algo como liderar una reunión de 30 minutos con un cliente en inglés, o dar una presentación a tu equipo. La meta coincide con tu nivel inicial y la duración de tu programa, así que es realmente alcanzable.|||Si asistes a cada sesión programada, completas tus objetivos semanales y aun así no has alcanzado esa meta al final de tu programa, <b style="color:var(--foreground)">sigo dándote coaching sin costo adicional hasta que la logres.</b>|||Las condiciones completas — incluyendo cómo se definen las metas, qué cuenta como asistencia y qué pasa si surge un imprevisto — están descritas en el contrato del cliente que se firma antes de iniciar el programa.' },
 
     'faq3-q': { en: 'What is the time commitment?', es: '¿Cuál es el compromiso de tiempo?' },
     'faq3-a': { en: 'Your live sessions are 50 minutes, 3 to 5 times per week depending on your package. I give you personalized objectives to complete after each session, built from your actual work. Most of your practice happens either within sessions or your daily work life, like meetings and emails you already have. You are not adding a second job.', es: 'Tus sesiones en vivo son de 50 minutos, de 3 a 5 veces por semana según tu paquete. Te doy objetivos personalizados para completar después de cada sesión, construidos desde tu trabajo real. La mayor parte de tu práctica ocurre dentro de las sesiones o en tu vida laboral diaria, como reuniones y correos que ya tienes. No estás agregando un segundo trabajo.' },
@@ -1395,7 +1419,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     'roster-label': { en: '3 of 5 client spots open', es: '3 de 5 espacios disponibles' },
 
     'final-eyebrow': { en: 'Limited Spots · Guaranteed Results*', es: 'Cupos limitados · Resultados garantizados*' },
-    'final-title': { en: 'Stop translating in your head and <span class="gold" style="color:var(--primary)">start leading in English</span> today', es: 'Deja de traducir en tu cabeza y <span class="gold" style="color:var(--primary)">empieza a liderar en inglés</span> hoy' },
+    'final-title': { en: 'New opportunities <span class="gold" style="color:var(--primary)">aren\'t going to wait</span> on your English.', es: 'Las nuevas oportunidades <span class="gold" style="color:var(--primary)">no van a esperar</span> a tu inglés.' },
     'final-body': { en: 'Professional live coaching, a custom program, and guaranteed results. Apply for coaching today.', es: 'Coaching profesional en vivo, un programa a tu medida y resultados garantizados. Solicita coaching hoy.' },
     'final-cta-btn': { en: 'Apply for Coaching', es: 'Solicita coaching' },
     'final-fine': { en: '*Full terms outlined in the client contract.', es: '*Términos completos en el contrato del cliente.' },
@@ -1417,6 +1441,7 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-lang-btn="en"]').forEach((btn) => btn.classList.toggle('active', lang === 'en'));
     document.querySelectorAll('[data-lang-btn="es"]').forEach((btn) => btn.classList.toggle('active', lang === 'es'));
+    if (window.__positionHeroLine) requestAnimationFrame(window.__positionHeroLine);
   }
 
   document.querySelectorAll('[data-lang-btn="en"]').forEach((btn) => btn.addEventListener('click', () => applyLanguage('en')));
@@ -1424,6 +1449,57 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
 
   // Default to Spanish on load
   applyLanguage('es');
+})();
+
+// --- Premium scroll reveals: fade-up as elements cross into view, gentle stagger ---
+(function () {
+  if (!document.documentElement.classList.contains('anim-ready')) return;
+  const els = Array.from(document.querySelectorAll('.reveal'));
+  if (!els.length) return;
+
+  // Assign a gentle stagger delay to siblings that reveal together
+  const groupCount = new Map();
+  els.forEach((el) => {
+    const p = el.parentElement || document.body;
+    const i = groupCount.get(p) || 0;
+    if (i > 0) el.style.transitionDelay = Math.min(i * 120, 520) + 'ms';
+    groupCount.set(p, i + 1);
+  });
+
+  let pending = els.slice();
+  let ticking = false;
+
+  function check() {
+    ticking = false;
+    const trigger = window.innerHeight * 0.88;
+    pending = pending.filter((el) => {
+      if (el.getBoundingClientRect().top < trigger) {
+        el.classList.add('is-in');
+        return false;
+      }
+      return true;
+    });
+    if (!pending.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(check); }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  check(); // reveal anything already in or above view on load
+})();
+
+// --- Nav: subtle elevated state once the page is scrolled ---
+(function () {
+  const nav = document.querySelector('header.site-nav');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
 // --- Mobile menu: hamburger toggle, backdrop, close on link click or resize to desktop ---
