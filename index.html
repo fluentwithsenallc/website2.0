@@ -359,11 +359,10 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
   .pilot .eyebrow-line{text-align:center}
   .pilot p{margin-left:auto;margin-right:auto}
   .pilot .price-block{width:100%}
-  /* Dashboard carousel: full-bleed + portrait aspect zooms into top-left so the sidebar and cards render at legible scale instead of a squished landscape */
+  /* Dashboard carousel: full-bleed width only, natural landscape aspect (matches source) so nothing crops */
   .combo-section{overflow:hidden}
   .combo-carousel{width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;max-width:none}
-  .combo-carousel-frame{border-radius:0;aspect-ratio:3/4}
-  .combo-slide img{object-position:top left}
+  .combo-carousel-frame{border-radius:0}
 }
 </style>
 </head>
