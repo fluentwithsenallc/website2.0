@@ -230,6 +230,57 @@ html[lang="es"] #hero-cta-1,html[lang="es"] #hero-cta-2{font-size:.68rem;padding
 .mtl-finish-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}
 .mtl-finish-name{font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:10px;letter-spacing:.5px}
 .mtl-finish-desc{font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.65;max-width:400px;margin:0 auto}
+
+/* Dashboard mockup, built in real HTML/CSS so it is always sharp. Hidden by default -
+   only shown on mobile (see mobile-only block) so desktop keeps the original image untouched. */
+.dash-mock{display:none;font-family:'DM Sans','Poppins',sans-serif;border:1px solid oklch(1 0 0/8%);background:oklch(0.12 0.03 265);flex-direction:column;height:100%}
+.dash-chrome{display:flex;align-items:center;gap:7px;padding:9px 14px;background:oklch(0.1 0.025 265);border-bottom:1px solid oklch(1 0 0/6%);flex-shrink:0}
+.dash-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dash-dot-red{background:#ff5f57}
+.dash-dot-yellow{background:#febc2e}
+.dash-dot-green{background:#28c840}
+.dash-url{margin-left:8px;font-size:11px;color:rgba(255,255,255,.32)}
+.dash-body{display:flex;flex-direction:column;flex:1;min-height:0}
+.dash-sidebar{flex-shrink:0;background:oklch(0.11 0.028 265);border-right:1px solid oklch(1 0 0/6%);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dash-brand-name{font-size:12px;font-weight:800;color:#fff;letter-spacing:.02em}
+.dash-brand-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
+.dash-user{display:flex;align-items:center;gap:9px}
+.dash-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#c9a84c,#a07820);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:oklch(0.12 0.03 265);flex-shrink:0}
+.dash-user-name{font-size:11.5px;font-weight:700;color:#fff}
+.dash-user-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:1px}
+.dash-main{flex:1;min-width:0;padding:18px;overflow-y:auto}
+.dash-main-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.dash-greet{font-size:17px;font-weight:800;color:#fff;margin:0}
+.dash-greet-sub{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px}
+.dash-hdr-btns{display:flex;gap:8px;flex-wrap:wrap}
+.dash-btn{font-size:10.5px;font-weight:600;padding:8px 12px;border-radius:8px;white-space:nowrap}
+.dash-btn-ghost{border:1px solid oklch(1 0 0/14%);color:rgba(255,255,255,.75);background:transparent}
+.dash-btn-gold{background:#c9a84c;color:oklch(0.12 0.03 265)}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.dash-stat{background:oklch(1 0 0/3%);border:1px solid oklch(1 0 0/8%);border-radius:10px;padding:10px}
+.dash-stat-label{font-size:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.4);display:block}
+.dash-stat-value{font-size:17px;font-weight:800;color:#fff;margin-top:5px;display:block}
+.dash-stat-of{font-size:11px;font-weight:600;color:rgba(255,255,255,.4)}
+.dash-stat-gold{color:#c9a84c}
+.dash-stat-blue{color:#5b9fe3}
+.dash-stat-note{font-size:9px;color:rgba(255,255,255,.4);margin-top:3px;display:block}
+.dash-stat-up{color:#5fbf7a}
+.dash-objectives{background:oklch(1 0 0/3%);border:1px solid oklch(1 0 0/8%);border-radius:10px;padding:14px 14px;margin-bottom:12px}
+.dash-obj-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dash-obj-title{font-size:12.5px;font-weight:700;color:#fff}
+.dash-obj-viewall{font-size:10.5px;color:#c9a84c;font-weight:600}
+.dash-obj-item{display:flex;align-items:flex-start;gap:9px;font-size:11.5px;color:rgba(255,255,255,.82);padding:5px 0}
+.dash-obj-item.done{color:rgba(255,255,255,.35);text-decoration:line-through}
+.dash-check{width:14px;height:14px;border-radius:4px;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:9px;color:oklch(0.12 0.03 265)}
+.dash-obj-item.done .dash-check{background:#c9a84c;border-color:#c9a84c}
+.dash-progress-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dash-progress-card{background:oklch(1 0 0/3%);border:1px solid oklch(1 0 0/8%);border-radius:10px;padding:12px 14px}
+.dash-progress-label{font-size:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;display:block}
+.dash-progress-bar{height:5px;background:oklch(1 0 0/8%);border-radius:4px;overflow:hidden;margin-bottom:7px}
+.dash-progress-fill{height:100%;background:linear-gradient(90deg,#a07820,#c9a84c);border-radius:4px}
+.dash-progress-fill.dash-progress-blue{background:linear-gradient(90deg,#3b6fb0,#5b9fe3)}
+.dash-progress-footer{display:flex;justify-content:space-between;font-size:9.5px;color:rgba(255,255,255,.5)}
+
 .combo-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
 .combo-dots span{height:6px;width:6px;border-radius:999px;background:rgba(245,243,238,.2);cursor:pointer;transition:all .2s ease;display:inline-block}
 .combo-dots span.active{width:24px;background:var(--primary)}
@@ -359,10 +410,14 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
   .pilot .eyebrow-line{text-align:center}
   .pilot p{margin-left:auto;margin-right:auto}
   .pilot .price-block{width:100%}
-  /* Dashboard carousel: full-bleed width only, natural landscape aspect (matches source) so nothing crops */
+  /* Dashboard carousel: full-bleed width. Slide 0 shows the real HTML/CSS mock (always sharp)
+     instead of the source image on mobile only - desktop still uses the original image untouched. */
   .combo-section{overflow:hidden}
   .combo-carousel{width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;max-width:none}
-  .combo-carousel-frame{border-radius:0}
+  .combo-carousel-frame{border-radius:0;aspect-ratio:unset;min-height:560px}
+  .combo-slide[data-combo-slide="0"]{overflow-y:auto}
+  .combo-slide[data-combo-slide="0"] img{display:none}
+  .combo-slide[data-combo-slide="0"] .dash-mock{display:flex}
 }
 </style>
 </head>
@@ -533,6 +588,80 @@ footer{border-top:1px solid var(--border);background:var(--background);padding:4
           <div class="combo-carousel-frame">
             <div class="combo-slide active" data-combo-slide="0">
               <img src="https://ebecd6d012a4750b05cf2b81c1b867a7.cdn.bubble.io/f1779272153887x513859800857069400/DASHBOARD%282%29.svg" alt="Fluent with Sena student dashboard">
+              <div class="dash-mock" aria-hidden="true">
+                <div class="dash-chrome">
+                  <span class="dash-dot dash-dot-red"></span>
+                  <span class="dash-dot dash-dot-yellow"></span>
+                  <span class="dash-dot dash-dot-green"></span>
+                  <span class="dash-url">app.fluentwithsena.com/dashboard</span>
+                </div>
+                <div class="dash-body">
+                  <div class="dash-sidebar">
+                    <div>
+                      <div class="dash-brand-name">FLUENT WITH SENA</div>
+                      <div class="dash-brand-sub">Student Portal</div>
+                    </div>
+                    <div class="dash-user">
+                      <div class="dash-avatar">JM</div>
+                      <div>
+                        <div class="dash-user-name">Javier</div>
+                        <div class="dash-user-sub">Build &middot; Week 4</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dash-main">
+                    <div class="dash-main-hdr">
+                      <div>
+                        <h3 class="dash-greet">Good morning, Javier.</h3>
+                        <p class="dash-greet-sub">Week 4 &middot; Build Program &middot; 12 weeks remaining</p>
+                      </div>
+                      <div class="dash-hdr-btns">
+                        <span class="dash-btn dash-btn-ghost">Weekly check-in &rarr;</span>
+                        <span class="dash-btn dash-btn-gold">This week&rsquo;s objectives</span>
+                      </div>
+                    </div>
+                    <div class="dash-stats">
+                      <div class="dash-stat">
+                        <span class="dash-stat-label">Sessions This Week</span>
+                        <span class="dash-stat-value">3<span class="dash-stat-of"> / 4</span></span>
+                        <span class="dash-stat-note">1 remaining</span>
+                      </div>
+                      <div class="dash-stat">
+                        <span class="dash-stat-label">Confidence Rating</span>
+                        <span class="dash-stat-value dash-stat-gold">8.2</span>
+                        <span class="dash-stat-note dash-stat-up">&uarr; 1.4 since week 1</span>
+                      </div>
+                      <div class="dash-stat">
+                        <span class="dash-stat-label">Lessons Completed</span>
+                        <span class="dash-stat-value dash-stat-blue">17</span>
+                        <span class="dash-stat-note">of 60 total</span>
+                      </div>
+                    </div>
+                    <div class="dash-objectives">
+                      <div class="dash-obj-hdr">
+                        <span class="dash-obj-title">This Week&rsquo;s Objectives</span>
+                        <span class="dash-obj-viewall">View all &rarr;</span>
+                      </div>
+                      <div class="dash-obj-item done"><span class="dash-check">&#10003;</span>Complete Business Email Writing module</div>
+                      <div class="dash-obj-item done"><span class="dash-check">&#10003;</span>Submit weekly self-evaluation</div>
+                      <div class="dash-obj-item"><span class="dash-check"></span>Practice shadowing &mdash; presentation audio (15 min)</div>
+                      <div class="dash-obj-item"><span class="dash-check"></span>AI conversation session: negotiation vocabulary</div>
+                    </div>
+                    <div class="dash-progress-row">
+                      <div class="dash-progress-card">
+                        <span class="dash-progress-label">Program Progress</span>
+                        <div class="dash-progress-bar"><div class="dash-progress-fill" style="width:27%"></div></div>
+                        <div class="dash-progress-footer"><span>Week 4 of 16</span><span>27%</span></div>
+                      </div>
+                      <div class="dash-progress-card">
+                        <span class="dash-progress-label">Fluency Milestone</span>
+                        <div class="dash-progress-bar"><div class="dash-progress-fill dash-progress-blue" style="width:62%"></div></div>
+                        <div class="dash-progress-footer"><span>Intermediate B2</span><span>62%</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="combo-slide combo-slide-milestones" data-combo-slide="1">
               <div class="mtl">
